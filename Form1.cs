@@ -62,8 +62,9 @@ namespace tema2
 
             for (int i = 0; i < nr; i++)
             {
-                panel1.Controls.Add(textBoxes[i]);
-                panel1.Controls.Add(labels[i]);
+                flowLayoutPanel1.Controls.Add(labels[i]);
+                flowLayoutPanel1.Controls.Add(textBoxes[i]);
+                
             }
         }
 
@@ -161,7 +162,7 @@ namespace tema2
                 {
                     cmd.Parameters.AddWithValue(paramsNames[i], textBoxes[i].Text);
                 }
-                cmd.Parameters.AddWithValue("@id", (int)dataGridViewChild.CurrentRow.Cells[0].Value);
+                cmd.Parameters.AddWithValue("@id", dataGridViewChild.CurrentRow.Cells[0].Value);
                 SqlDataAdapter daChild = new SqlDataAdapter(cmd);
                 DataSet dataSet = new DataSet();
                 connection.Open();
